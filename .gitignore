@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+
+# Env & secrets
+.env
+bus-ticket-booker-3824a-firebase-adminsdk-fbsvc-5be137838a.json
+
+# IDE & editor files
+*.vscode/
+*.idea/
+.DS_Store
+
+# # Docker artifacts (optional if you use)
+# *.log
