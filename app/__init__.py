@@ -5,9 +5,12 @@ import os
 from .config import Config
 from .firebase_auth import firebase_auth_required
 from flask import request
+from flask_migrate import Migrate
+# import app.models
 
 db = SQLAlchemy()
 redis_client = None  # Will initialize later
+migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
@@ -17,6 +20,9 @@ def create_app():
 
     # Init extensions
     db.init_app(app)
+
+    migrate.init_app(app, db)
+    from app.models import Bus, Booking
 
     # Set up Redis client (as a global)
     global redis_client
