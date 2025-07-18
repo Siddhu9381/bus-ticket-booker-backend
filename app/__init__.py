@@ -45,5 +45,9 @@ def create_app():
             "uid": user["uid"],
             "email": user.get("email"),
         }, 200
+    
+    from app.routes.bus_routes import bus_bp
+    app.register_blueprint(bus_bp)
+
 
     return app
